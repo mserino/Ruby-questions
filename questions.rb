@@ -286,4 +286,17 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
+	bottles = 99
+	until bottles == -1 do
+		var = "#{bottles} bottles" if bottles > 1
+		var = "#{bottles} bottle" if bottles == 1
+		var2 = "#{bottles - 1} bottles" if bottles > 1
+		var2 = "#{bottles - 1} bottle" if (bottles -1) == 1
+		var2 = "no more bottles" if bottles == 0
+		puts "#{var} of beer on the wall, #{var} of beer."
+		puts "Take one and pass it around, #{var2} of beer on the wall."
+		bottles -=1
+	end
+	puts "No more bottles of beer on the wall, no more bottles of beer."
+  puts "Go to the store and buy some more, 99 bottles of beer on the wall."
 end
