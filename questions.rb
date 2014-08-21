@@ -267,13 +267,10 @@ def count_words_of_each_length_in_a_file(file_path)
 	file = File.open(file_path, 'r')
 	words = file.read.split(/\W/)
 	words.delete_if{|w| w==""}
-	@lengths = words.map{|w| w.length}
-	# @hash = {}
-	count = @lengths.min
-	until count == @lengths.max do
-		@lengths.map {|l| Hash[count] = @lengths.select{|w| w == count}.count}
-		count +=1
-	end
+	lengths = words.map{|w| w.length}
+	counts = Hash.new(0)
+	lengths.each{|number| counts[number] +=1 }
+	return counts
 end
 
 # implement fizzbuzz without modulo, i.e. the % method
